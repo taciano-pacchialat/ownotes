@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "674828250035",
+    "project_id": "ownotes-flutter-project",
+    "storage_bucket": "ownotes-flutter-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674828250035:android:059c1d46cec5655078f9c6",
+        "android_client_info": {
+          "package_name": "com.taci.ownotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "674828250035-v88jkl51paejtkdsultt58qcbn9sh7jb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQ-RvnoE1iyYi2PUNDrR6ePXzWbvlYfhg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "674828250035-v88jkl51paejtkdsultt58qcbn9sh7jb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "674828250035-qhj99qkcpk05pooftfggvul9nnth082c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.taci.ownotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
