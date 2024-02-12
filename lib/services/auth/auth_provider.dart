@@ -1,7 +1,11 @@
 import 'package:ownotes/services/auth/auth_user.dart';
 
+// abstract class to define auth provider's mandatory methods
+
 abstract class AuthProvider {
   AuthUser? get currentUser;
+
+  Future<void> initialize();
 
   Future<AuthUser> logIn({
     required String email,
