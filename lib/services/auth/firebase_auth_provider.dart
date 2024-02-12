@@ -1,7 +1,6 @@
-import 'package:ownotes/services/auth/auth_exceptions.dart';
 import 'package:ownotes/services/auth/auth_user.dart';
 import 'package:ownotes/services/auth/auth_provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ownotes/services/auth/auth_exceptions.dart';
 import 'package:firebase_auth/firebase_auth.dart'
     show FirebaseAuth, FirebaseAuthException;
 
@@ -32,7 +31,7 @@ class FirebaseAuthProvider implements AuthProvider {
       } else {
         throw UserNotLoggedInAuthException();
       }
-    } on FirebaseException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         throw WeakPasswordAuthException();
       } else if (e.code == 'email-already-in-use') {
@@ -47,12 +46,16 @@ class FirebaseAuthProvider implements AuthProvider {
     }
   }
 
+  @override
   Future<AuthUser> logIn({
     required String email,
     required String password,
   }) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password,);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       final user = currentUser;
       if (user != null) {
         return user;
@@ -64,16 +67,15 @@ class FirebaseAuthProvider implements AuthProvider {
         throw WrongCredentialsAuthException();
       } else if (e.code == 'wrong-password') {
         throw WrongPasswordAuthException();
-      }  else {
+      } else {
         throw GenericAuthException();
       }
     } catch (_) {
       throw GenericAuthException();
     }
+  }
 
-  } 
-}
-
+  @override
   Future<void> logOut() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
@@ -83,6 +85,7 @@ class FirebaseAuthProvider implements AuthProvider {
     }
   }
 
+  @override
   Future<void> sendEmailVerification() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
