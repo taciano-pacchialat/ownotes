@@ -18,8 +18,11 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
       appBar: AppBar(title: const Text('Email verification')),
       body: Column(children: [
         const Text(
-            "We've sent you an email verification. Please verify before using Ownotes"),
-        const Text("If you haven't received the email, press the button below"),
+          "We've sent you an email verification. Please verify before using Ownotes",
+        ),
+        const Text(
+          "If you haven't received the email, press the button below",
+        ),
         TextButton(
           onPressed: () async {
             await AuthService.firebase().sendEmailVerification();

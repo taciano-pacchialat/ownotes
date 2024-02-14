@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
 import 'package:ownotes/constants/routes.dart';
 import 'package:ownotes/services/auth/auth_exceptions.dart';
 import 'package:ownotes/services/auth/auth_service.dart';
