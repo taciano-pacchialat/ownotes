@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ownotes/constants/routes.dart';
-import 'package:ownotes/enums/manu_action.dart';
+import 'package:ownotes/enums/menu_action.dart';
 import 'package:ownotes/main.dart';
 import 'package:ownotes/services/auth/auth_service.dart';
 import 'package:ownotes/services/crud/notes_service.dart';
@@ -35,8 +35,14 @@ class _NotesViewState extends State<NotesView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Your notes'),
+          title: const Text('Your Notes'),
           actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(newNoteRoute);
+              },
+              icon: const Icon(Icons.add),
+            ),
             PopupMenuButton<MenuAction>(
               onSelected: (value) async {
                 switch (value) {
