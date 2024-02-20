@@ -8,8 +8,6 @@ import 'package:ownotes/views/register_view.dart';
 import 'package:ownotes/views/verify_email_view.dart';
 import 'dart:developer' as devtools show log;
 
-// c18 min 15
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
