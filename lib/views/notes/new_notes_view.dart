@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ownotes/services/auth/auth_service.dart';
 import 'package:ownotes/services/crud/notes_service.dart';
-import 'dart:io' show Platform;
 
 class NewNoteView extends StatefulWidget {
-  const NewNoteView({super.key});
+  const NewNoteView({Key? key}) : super(key: key);
 
   @override
-  State<NewNoteView> createState() => _NewNoteViewState();
+  _NewNoteViewState createState() => _NewNoteViewState();
 }
 
 class _NewNoteViewState extends State<NewNoteView> {
@@ -24,7 +23,9 @@ class _NewNoteViewState extends State<NewNoteView> {
 
   void _textControllerListener() async {
     final note = _note;
-    if (note == null) return;
+    if (note == null) {
+      return;
+    }
     final text = _textController.text;
     await _notesService.updateNote(
       note: note,
@@ -50,7 +51,7 @@ class _NewNoteViewState extends State<NewNoteView> {
 
   void _deleteNoteIfTextIsEmpty() {
     final note = _note;
-    if (_textController.text.isEmpty && (note != null)) {
+    if (_textController.text.isEmpty && note != null) {
       _notesService.deleteNote(id: note.id);
     }
   }
@@ -59,7 +60,10 @@ class _NewNoteViewState extends State<NewNoteView> {
     final note = _note;
     final text = _textController.text;
     if (note != null && text.isNotEmpty) {
-      await _notesService.updateNote(note: note, text: text);
+      await _notesService.updateNote(
+        note: note,
+        text: text,
+      );
     }
   }
 
@@ -75,7 +79,7 @@ class _NewNoteViewState extends State<NewNoteView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("New Note"),
+        title: const Text('New Note'),
       ),
       body: FutureBuilder(
         future: createNewNote(),
@@ -88,9 +92,8 @@ class _NewNoteViewState extends State<NewNoteView> {
                 controller: _textController,
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Start typing your note...',
-                  border: Platform.isAndroid ? InputBorder.none : null,
                 ),
               );
             default:
