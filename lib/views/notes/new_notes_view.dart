@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ownotes/services/auth/auth_service.dart';
 import 'package:ownotes/services/crud/notes_service.dart';
+import 'dart:io' show Platform;
 
 class NewNoteView extends StatefulWidget {
   const NewNoteView({super.key});
@@ -81,14 +82,15 @@ class _NewNoteViewState extends State<NewNoteView> {
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.done:
-              _note = snapshot.data as DatabaseNote;
+              _note = snapshot.data;
               _setupTextControllerListener();
               return TextField(
                 controller: _textController,
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   hintText: 'Start typing your note...',
+                  border: Platform.isAndroid ? InputBorder.none : null,
                 ),
               );
             default:
