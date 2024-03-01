@@ -3,9 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:ownotes/constants/routes.dart';
 import 'package:ownotes/enums/menu_action.dart';
-import 'package:ownotes/main.dart';
 import 'package:ownotes/services/auth/auth_service.dart';
 import 'package:ownotes/services/crud/notes_service.dart';
+import 'package:ownotes/utilities/dialogs/logout_dialog.dart';
+import 'package:ownotes/views/notes/notes_list_view.dart';
 
 class NotesView extends StatefulWidget {
   const NotesView({super.key});
@@ -72,18 +73,10 @@ class _NotesViewState extends State<NotesView> {
                       case ConnectionState.active:
                         if (snapshot.hasData) {
                           final allNotes = snapshot.data as List<DatabaseNote>;
-                          return ListView.builder(
-                            itemCount: allNotes.length,
-                            itemBuilder: (context, index) {
-                              final note = allNotes[index];
-                              return ListTile(
-                                title: Text(
-                                  note.text,
-                                  maxLines: 1,
-                                  softWrap: true,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              );
+                          return NotesListView(
+                            notes: allNotes,
+                            onDeleteNote: (note) async {
+                              await _notesService.deleteNote(id: note.id);
                             },
                           );
                         } else {
