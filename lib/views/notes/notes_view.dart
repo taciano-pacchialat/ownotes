@@ -18,7 +18,7 @@ class NotesView extends StatefulWidget {
 class _NotesViewState extends State<NotesView> {
   late final NotesService _notesService;
 
-  String get userEmail => AuthService.firebase().currentUser!.email!;
+  String get userEmail => AuthService.firebase().currentUser!.email;
 
   @override
   void initState() {
@@ -31,6 +31,7 @@ class _NotesViewState extends State<NotesView> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Your Notes'),
+          backgroundColor: const Color.fromARGB(255, 219, 170, 24),
           actions: [
             IconButton(
               onPressed: () {
@@ -86,15 +87,16 @@ class _NotesViewState extends State<NotesView> {
                             },
                           );
                         } else {
-                          return const CircularProgressIndicator();
+                          return const Center(
+                              child: CircularProgressIndicator());
                         }
                       default:
-                        return const CircularProgressIndicator();
+                        return const Center(child: CircularProgressIndicator());
                     }
                   },
                 );
               default:
-                return const CircularProgressIndicator();
+                return const Center(child: CircularProgressIndicator());
             }
           }),
         ));

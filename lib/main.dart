@@ -14,7 +14,8 @@ void main() {
     MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        primaryColor: const Color.fromARGB(255, 219, 170, 24),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 223, 201, 121),
       ),
       home: const HomePage(),
       routes: {
@@ -50,7 +51,7 @@ class HomePage extends StatelessWidget {
               return const LoginView();
             }
           default:
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
         }
       },
     );
