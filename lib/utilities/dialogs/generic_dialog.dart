@@ -13,11 +13,23 @@ Future<T?> showGenericDialog<T>({
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: Text(title),
+        title: Text(
+          title,
+          style: const TextStyle(
+            color: Colors.black,
+          ),
+        ),
         content: Text(content),
+        backgroundColor: const Color.fromARGB(255, 223, 201, 121),
         actions: options.keys.map((optionTitle) {
           final T value = options[optionTitle];
           return TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.black,
+              backgroundColor: const Color.fromARGB(255, 223, 201, 121),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+            ),
             onPressed: () {
               if (value != null) {
                 Navigator.of(context).pop(value);
