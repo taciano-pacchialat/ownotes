@@ -32,6 +32,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "bloc",
+      "rootUri": "file:///home/taci/.pub-cache/hosted/pub.dev/bloc-8.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///home/taci/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -188,6 +194,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "flutter_bloc",
+      "rootUri": "file:///home/taci/.pub-cache/hosted/pub.dev/flutter_bloc-8.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///home/taci/.pub-cache/hosted/pub.dev/flutter_lints-2.0.3",
       "packageUri": "lib/",
@@ -278,6 +290,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///home/taci/.pub-cache/hosted/pub.dev/nested-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "node_preamble",
       "rootUri": "file:///home/taci/.pub-cache/hosted/pub.dev/node_preamble-2.0.2",
       "packageUri": "lib/",
@@ -346,6 +364,12 @@
     {
       "name": "pool",
       "rootUri": "file:///home/taci/.pub-cache/hosted/pub.dev/pool-1.5.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "provider",
+      "rootUri": "file:///home/taci/.pub-cache/hosted/pub.dev/provider-6.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -578,7 +602,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2024-07-16T20:20:36.823887Z",
+  "generated": "2024-07-17T20:44:47.473688Z",
   "generator": "pub",
   "generatorVersion": "3.2.6"
 }
